@@ -13,5 +13,6 @@ namespace HMS_ControlApp
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

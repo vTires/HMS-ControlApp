@@ -4,9 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HMS_ControlApp"
+        xmlns:views="clr-namespace:HMS_ControlApp.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="HMS ControlApp" Height="500" Width="1000"
+        >
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              Background="{StaticResource Gray_UI}"/>
+
+        <views:HeaderView Grid.Row="0"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="5"
+                          x:Name="HeaderView" />
+
+        <views:MainFrameView x:Name="MainViewFrame"
+               Grid.Row="1"
+               Grid.Column="1"
+                             Margin="10,10,0,0"/>
+      
+
+        <views:FootnoteView Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="5" />
 
     </Grid>
 </Window>

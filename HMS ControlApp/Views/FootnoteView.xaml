@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="HMS_ControlApp.Views.FootnoteView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HMS_ControlApp.Views"
+             xmlns:viewModels="clr-namespace:HMS_ControlApp.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="1000">
+
+    <UserControl.DataContext>
+        <viewModels:FootnoteViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="{StaticResource Orange_UI}">
+        
+        <Label Name="LiveTimeLabel"
+                   Content="{Binding CurrentTime}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Stretch"
+                   VerticalContentAlignment="Center"
+                   FontFamily="{StaticResource Roboto}"
+                   FontWeight="Bold"
+                   FontStretch="Condensed"
+                   FontSize="15"
+                   Padding="10,5,0,5"
+                   Width="auto"
+                   Height="auto" />
+    </Grid>
+</UserControl>

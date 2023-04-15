@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using HMS_ControlApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static HMS_ControlApp.Service.LanguageService;
 
 namespace HMS_ControlApp
 {
@@ -20,9 +23,23 @@ namespace HMS_ControlApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        FootnoteView footnoteView = new FootnoteView();
+        MainFrameView mainFrameView = new MainFrameView();
+        HeaderView headerView = new HeaderView();
+
         public MainWindow()
         {
+            
             InitializeComponent();
+            LanguageService.ChangeLanguage(Languages.English);
+
+            //temp
+            GlobalSettings globalsettings = new GlobalSettings();
+
+            //temp
+            Rs232Service.ConnectRs();
+            Rs232Service.SendCommand(Commands.PA_NEW);
+
         }
     }
 }
