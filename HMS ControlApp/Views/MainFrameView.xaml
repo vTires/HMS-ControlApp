@@ -18,14 +18,15 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal">
         <GroupBox Header="{DynamicResource StringMainFrame_RotationSettings}"
                   BorderBrush="{StaticResource Black_UI}"
-                  Grid.Row="0"
+                  Grid.Row="1"
                   Grid.Column="0"
                   Width="Auto"
                   MinWidth="200"
@@ -53,7 +54,7 @@
         
         <GroupBox Header="{DynamicResource StringMainFrame_TemperatureSettings}"
                   BorderBrush="{StaticResource Black_UI}"
-                  Grid.Row="0"
+                  Grid.Row="1"
                   Grid.Column="0"
                   Width="Auto"
                   MinWidth="200"

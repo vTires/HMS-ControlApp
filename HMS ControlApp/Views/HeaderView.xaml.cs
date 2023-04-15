@@ -1,5 +1,8 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using HMS_ControlApp.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,16 @@ namespace HMS_ControlApp.Views
     /// </summary>
     public partial class HeaderView : UserControl
     {
+        HeaderViewModel headerViewModel = new HeaderViewModel();
         public HeaderView()
         {
             InitializeComponent();
+            DataContext = headerViewModel;
+        }
+
+        private void cbComPortSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Rs232Service.COMChoosed();
         }
     }
 }

@@ -32,7 +32,8 @@
         <views:MainFrameView x:Name="MainViewFrame"
                Grid.Row="1"
                Grid.Column="1"
-                             Margin="10,10,0,0"/>
+               Margin="10,10,0,0"
+               IsEnabled="False"/>
       
 
         <views:FootnoteView Grid.Row="2"

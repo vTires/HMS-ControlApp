@@ -32,13 +32,8 @@ namespace HMS_ControlApp
             
             InitializeComponent();
             LanguageService.ChangeLanguage(Languages.English);
-
-            //temp
             GlobalSettings globalsettings = new GlobalSettings();
 
-            //temp
-            Rs232Service.ConnectRs();
-            Rs232Service.SendCommand(Commands.PA_NEW);
 
         }
     }

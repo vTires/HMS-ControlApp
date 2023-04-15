@@ -10,10 +10,11 @@ namespace HMS_ControlApp
     public class GlobalSettings
     {
         public static SerialPort? serialPort;
+        public static string COMPort;
 
         public GlobalSettings()
         {
-            serialPort = new SerialPort("COM3", 9600, Parity.Even, 7, StopBits.One);
+            
         }
     }
 }

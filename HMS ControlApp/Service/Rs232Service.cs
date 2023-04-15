@@ -16,6 +16,21 @@ namespace HMS_ControlApp.Service
         {
            // serialPort = new SerialPort("COM3", 9600, Parity.Even, 7, StopBits.One);
         }
+
+        public static void COMChoosed()
+        {
+            if (GlobalSettings.COMPort != null)
+            {
+                GlobalSettings.serialPort = new SerialPort(GlobalSettings.COMPort, 9600, Parity.Even, 7, StopBits.One);
+                Rs232Service.ConnectRs();
+                Rs232Service.SendCommand(Commands.PA_NEW);
+            }
+            else
+            {
+                MessageBox.Show("Error in COM Port");
+            }
+        }
+
         public static void ConnectRs()
         {
             if (GlobalSettings.serialPort != null)
