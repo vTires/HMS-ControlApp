@@ -8,11 +8,40 @@
              d:DesignHeight="420" d:DesignWidth="950">
     <Grid Background="{StaticResource White_UI}"
           Margin="10,10,0,0">
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    Grid.Column="0">
+            <Label Content="{DynamicResource StringSettings_Language}"
+                   Width="80"/>
+            
+            <ComboBox x:Name="cbLanguage" 
+                  Height="30"
+                  Width="100"
+                  SelectionChanged="cbLanguageValueChange" 
+                  SelectedIndex="0"
+                  VerticalAlignment="Top"
+                  Margin="10,0,0,0"/>
+            
+        </StackPanel>
+        
+
+
+        <!--<StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    >
             <Label Content="Page in building"/>
             <Label Content="Settings will be here"/>
-        </StackPanel>
+        </StackPanel>-->
         
     </Grid>
 </UserControl>

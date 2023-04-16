@@ -9,6 +9,16 @@
 <!--MainFrame-->
     <system:String x:Key="StringMainFrame_RotationSettings">Ustawienia mieszania</system:String>
     <system:String x:Key="StringMainFrame_TemperatureSettings">Ustawienia temperatury</system:String>
+    <system:String x:Key="StringMainFrame_SetPoint">Nastawa:</system:String>
+    <system:String x:Key="StringMainFrame_ProcessValue">Aktualna wartość:</system:String>
+    <system:String x:Key="StringMainFrame_StartRotation">Rozpocznij mieszanie</system:String>
+    <system:String x:Key="StringMainFrame_StopRotation">Zatrzymaj mieszanie</system:String>
+    <system:String x:Key="StringMainFrame_Startheating">Rozpocznij grzanie</system:String>
+    <system:String x:Key="StringMainFrame_Stopheating">Zatrzymaj grzanie</system:String>
 
+    <!--Settings-->
+    <system:String x:Key="StringSettings_Language">Język</system:String>
+
+    <!--Alarms-->
 
 </ResourceDictionary>

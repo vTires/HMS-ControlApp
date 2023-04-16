@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,26 @@ namespace HMS_ControlApp.Views
     /// </summary>
     public partial class SettingsView : UserControl
     {
+        LanguageService languageService;
+
         public SettingsView()
         {
             InitializeComponent();
+            languageService = new LanguageService();
+            DataContext = languageService;
+            cbLanguage.ItemsSource = Enum.GetValues(typeof(LanguageService.Languages));
+        }
+
+        private void cbLanguageValueChange(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbLanguage.SelectedIndex == (int)LanguageService.Languages.Polski)
+            {
+                LanguageService.ChangeLanguage(LanguageService.Languages.Polski);
+            }
+            else
+            {
+                LanguageService.ChangeLanguage(LanguageService.Languages.English);
+            }
         }
     }
 }

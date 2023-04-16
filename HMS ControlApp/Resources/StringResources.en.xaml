@@ -9,5 +9,16 @@
 <!--MainFrame-->
     <system:String x:Key="StringMainFrame_RotationSettings">Rotation Settings</system:String>
     <system:String x:Key="StringMainFrame_TemperatureSettings">Temperature Settings</system:String>
+    <system:String x:Key="StringMainFrame_SetPoint">Set Point:</system:String>
+    <system:String x:Key="StringMainFrame_ProcessValue">Process Value:</system:String>
+    <system:String x:Key="StringMainFrame_StartRotation">Start rotation</system:String>
+    <system:String x:Key="StringMainFrame_StopRotation">Stop rotation</system:String>
+    <system:String x:Key="StringMainFrame_StartHeating">Start heating</system:String>
+    <system:String x:Key="StringMainFrame_StopHeating">Stop heating</system:String>
+
+<!--Settings-->
+    <system:String x:Key="StringSettings_Language">Language</system:String>
+
+<!--Alarms-->
 
 </ResourceDictionary>

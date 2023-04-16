@@ -32,34 +32,34 @@ namespace HMS_ControlApp.Views
 
         private void StartStopRotation(object sender, RoutedEventArgs e)
         {
-            if (btnStartStopRotation.Content == "Start rotation")
+            if (btnStartStopRotation.Content == Application.Current.FindResource("StringMainFrame_StartRotation") as string)
             {
                 Rs232Service.SendCommand(Commands.StartRotation);
                 GlobalSettings.serialPort.ReadLine();
-                btnStartStopRotation.Content = "Stop rotation";
+                btnStartStopRotation.Content = Application.Current.FindResource("StringMainFrame_StopRotation") as string;
             }
             else
             {
                 Rs232Service.SendCommand(Commands.StopRotation);
                 GlobalSettings.serialPort.ReadLine();
-                btnStartStopRotation.Content = "Start rotation";
+                btnStartStopRotation.Content = Application.Current.FindResource("StringMainFrame_StartRotation") as string;
             }
             
         }
 
         private void StartStopHeating(object sender, RoutedEventArgs e)
         {
-            if (btnStartStopHeating.Content == "Start heating")
+            if (btnStartStopHeating.Content == Application.Current.FindResource("StringMainFrame_StartHeating") as string)
             {
                 Rs232Service.SendCommand(Commands.StartHeating);
                 GlobalSettings.serialPort.ReadLine();
-                btnStartStopHeating.Content = "Stop heating";
+                btnStartStopHeating.Content = Application.Current.FindResource("StringMainFrame_StopHeating") as string;
             }
             else
             {
                 Rs232Service.SendCommand(Commands.StopHeating);
                 GlobalSettings.serialPort.ReadLine();
-                btnStartStopHeating.Content = "Start heating";
+                btnStartStopHeating.Content = Application.Current.FindResource("StringMainFrame_StartHeating") as string;
             }
         }
       
