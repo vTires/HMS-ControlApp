@@ -39,8 +39,8 @@
                                  MinWidth="50"
                                  HorizontalContentAlignment="Left"
                                  VerticalContentAlignment="Center"
-                                 Text="{Binding SPRotation}"
-                                 TextChanged="tbRotationSP_TextChanged"/>
+                                 Text="{Binding SPRotation, Mode=TwoWay}"
+                                 LostFocus="tbRotationSP_LostFocus"/>
                         <Label Content="RPM"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -70,8 +70,8 @@
                                  MinWidth="50"
                                  HorizontalContentAlignment="Left"
                                  VerticalContentAlignment="Center"
-                                 Text="{Binding SPRotation}"
-                                 TextChanged="tbTempSP_TextChanged"/>
+                                 Text="{Binding SPTemperature, Mode=TwoWay}"
+                                 LostFocus="tbTempSP_LostFocus"/>
                         <Label Content="°C"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">

@@ -73,13 +73,16 @@ namespace HMS_ControlApp.ViewModels
 
         public void SetSpeed()
         {
-            //string CurrentSetPoint = Commands.SetSpeed.Replace(Y, 22, 9);
+            string CurrentSetPoint = Commands.SetSpeed.Replace("Y", SPRotation.ToString());
             Rs232Service.SendCommand(Commands.SetSpeed);
+            GlobalSettings.serialPort.ReadLine();          
 
         }
         public void SetTemperature()
         {
+            string CurrentSetPoint = Commands.SetSpeed.Replace("Y", SPTemperature.ToString());
             Rs232Service.SendCommand(Commands.SetTemperature);
+            GlobalSettings.serialPort.ReadLine();
         }
 
 

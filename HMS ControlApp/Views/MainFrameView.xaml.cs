@@ -62,17 +62,15 @@ namespace HMS_ControlApp.Views
                 btnStartStopHeating.Content = "Start heating";
             }
         }
-
-        private void tbRotationSP_TextChanged(object sender, TextChangedEventArgs e)
+      
+        private void tbRotationSP_LostFocus(object sender, RoutedEventArgs e)
         {
-            //mainFrameViewModel.SetSpeed();
+            if (tbRotationSP != null) mainFrameViewModel.SetSpeed();
         }
 
-        private void tbTempSP_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbTempSP_LostFocus(object sender, RoutedEventArgs e)
         {
-            //mainFrameViewModel.SetTemperature();
+            if (tbTempSP != null) mainFrameViewModel.SetTemperature();
         }
-
-        
     }
 }
