@@ -17,10 +17,15 @@
         <GradientStop Color="#FF1D1B19" Offset="1"/>
     </LinearGradientBrush>
 
+    <LinearGradientBrush x:Key="Gray_UI" StartPoint="0,0.5" EndPoint="1,0.5" MappingMode="RelativeToBoundingBox">
+        <GradientStop Color="#9FA0A7" Offset="1"/>
+        <GradientStop Color="#FFFBFBFB" Offset="0"/>
+    </LinearGradientBrush>
+
 
     <SolidColorBrush x:Key="Red_Alarm" Color="#EA1212"/>
     <SolidColorBrush x:Key="White_UI" Color="White"/>
-    <SolidColorBrush x:Key="Gray_UI" Color="#9FA0A7"/>
+    <!--<SolidColorBrush x:Key="Gray_UI" Color="#9FA0A7"/>-->
     <SolidColorBrush x:Key="Dark_UI" Color="#585857"/>
 
     <!--text color = dark_UI color-->

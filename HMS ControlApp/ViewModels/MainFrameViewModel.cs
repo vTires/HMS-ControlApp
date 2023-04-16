@@ -14,14 +14,24 @@ namespace HMS_ControlApp.ViewModels
         public MainFrameViewModel()
         {
             UpdateService.PropertyChanged += UpdateService_PropertyChanged;
+            GlobalSettings.PropertyChanged += GlobalSettings_PropertyChanged;
         }
 
-
+        private bool _IsFrameShouldBeEnabled = false;
         private float _CurrentTemperature;
         private float _CurrentRotation;
         private float _SPTemperature;
         private float _SPRotation;
 
+        public bool IsFrameShouldBeEnabled
+        {
+            get { return GlobalSettings.isRsConnected; }
+            set
+            {
+                _IsFrameShouldBeEnabled = value;
+                OnPropertyChanged(nameof(IsFrameShouldBeEnabled));
+            }
+        }
         public float CurrentTemperature
         {
             get { return UpdateService.CurrentTemperature; }
@@ -71,6 +81,7 @@ namespace HMS_ControlApp.ViewModels
             }
         }
 
+
         public void SetSpeed()
         {
             string CurrentSetPoint = Commands.SetSpeed.Replace("Y", SPRotation.ToString());
@@ -100,6 +111,11 @@ namespace HMS_ControlApp.ViewModels
                 OnPropertyChanged(nameof(CurrentTemperature));
             else if (e.PropertyName == nameof(UpdateService.CurrentRotation))
                 OnPropertyChanged(nameof(CurrentRotation));
+        }
+        private void GlobalSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(GlobalSettings.isRsConnected))
+                OnPropertyChanged(nameof(IsFrameShouldBeEnabled));
         }
 
         #endregion

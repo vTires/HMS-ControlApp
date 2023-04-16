@@ -23,8 +23,16 @@ namespace HMS_ControlApp.Service
                 GlobalSettings.serialPort = new SerialPort(GlobalSettings.COMPort, 9600, Parity.Even, 7, StopBits.One);
                 Rs232Service.ConnectRs();
                 Rs232Service.SendCommand(Commands.PA_NEW);
-                GlobalSettings.serialPort.ReadLine();
-                UpdateService.GetProcessValue_Dispatcher.Start();
+                var response = GlobalSettings.serialPort.ReadLine();
+                if (response == "PA_NEW\r")
+                {
+                    UpdateService.GetProcessValue_Dispatcher.Start();
+                }
+                else
+                {
+                    GlobalSettings.serialPort.Close();
+                    MessageBox.Show("COM Port is not correct");
+                }
 
             }
             else

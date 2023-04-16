@@ -29,6 +29,8 @@ namespace HMS_ControlApp
         MainFrameView mainFrameView = new MainFrameView();
         HeaderView headerView = new HeaderView();
         UpdateService updateService = new UpdateService();
+        SettingsView settingsView = new SettingsView();
+        AlarmsView alarmsView = new AlarmsView();
         MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
 
         public MainWindow()
@@ -38,10 +40,24 @@ namespace HMS_ControlApp
             LanguageService.ChangeLanguage(Languages.English);
             GlobalSettings globalsettings = new GlobalSettings();
             DataContext = mainWindowViewModel;
-            
+            MainFrame.Navigate(mainFrameView);
 
         }
 
 
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(mainFrameView);
+        }
+
+        private void btnSettingsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(settingsView);
+        }
+
+        private void btnAlarmsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(alarmsView);
+        }
     }
 }

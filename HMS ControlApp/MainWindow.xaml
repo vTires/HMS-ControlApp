@@ -27,19 +27,52 @@
 
         <Grid Grid.Row="1"
               Grid.Column="0"
-              Background="{StaticResource Gray_UI}"/>
+              Background="{StaticResource Gray_UI}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <WrapPanel Grid.Row="0"
+                       Grid.Column="0"
+                       Orientation="Vertical"
+                       Background="{StaticResource Gray_UI}">
+                <Button x:Name="btnMainMenu"
+                        Height="50" Width="50"
+                        Background="Transparent"
+                        Click="btnMainMenu_Click">
+                    <Image Source="/Images/home.png" 
+                           Width="30"/>
+                </Button>
+                <Button x:Name="btnSettingsMenu"
+                        Height="50" Width="50"
+                        Background="Transparent"
+                        Click="btnSettingsMenu_Click">
+                    <Image Source="/Images/settings.png"
+                           Width="30"/>
+                </Button>
+                <Button x:Name="btnAlarmsMenu"
+                        Height="50" Width="50"
+                        Background="Transparent"
+                        Click="btnAlarmsMenu_Click">
+                    <Image Source="/Images/bell.png"
+                           Width="30"/>
+                </Button>
+            </WrapPanel>
+        </Grid>
 
         <views:HeaderView Grid.Row="0"
                           Grid.Column="0"
                           Grid.ColumnSpan="5"
                           x:Name="HeaderView" />
-        <Grid Grid.Row="1"
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
                Grid.Column="1"
-               Margin="10,10,0,0"
-              IsEnabled="{Binding IsFrameShouldBeEnabled}">
-            <views:MainFrameView x:Name="MainViewFrame"/>
-        </Grid>
-       
+               NavigationUIVisibility="Hidden"/>
+     
       
 
         <views:FootnoteView Grid.Row="2"
