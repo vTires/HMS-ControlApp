@@ -33,12 +33,13 @@
                           Grid.Column="0"
                           Grid.ColumnSpan="5"
                           x:Name="HeaderView" />
-
-        <views:MainFrameView x:Name="MainViewFrame"
-               Grid.Row="1"
+        <Grid Grid.Row="1"
                Grid.Column="1"
                Margin="10,10,0,0"
-               IsEnabled="{Binding IsFrameShouldBeEnabled}"/>
+              IsEnabled="{Binding IsFrameShouldBeEnabled}">
+            <views:MainFrameView x:Name="MainViewFrame"/>
+        </Grid>
+       
       
 
         <views:FootnoteView Grid.Row="2"

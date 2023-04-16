@@ -38,7 +38,9 @@
                         <TextBox x:Name="tbRotationSP"
                                  MinWidth="50"
                                  HorizontalContentAlignment="Left"
-                                 VerticalContentAlignment="Center"/>
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding SPRotation}"
+                                 TextChanged="tbRotationSP_TextChanged"/>
                         <Label Content="RPM"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -47,8 +49,9 @@
                                Content="{Binding CurrentRotation}"/>
                         <Label Content="RPM"/>
                     </StackPanel>
-                    <Button Content="Start rotation"
-                            Click="StartRotation"/>
+                    <Button x:Name="btnStartStopRotation"
+                            Content="Start rotation"
+                            Click="StartStopRotation"/>
                 </StackPanel>
             </GroupBox>
         
@@ -66,17 +69,20 @@
                         <TextBox x:Name="tbTempSP"
                                  MinWidth="50"
                                  HorizontalContentAlignment="Left"
-                                 VerticalContentAlignment="Center"/>
-                        <Label Content="C"/>
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding SPRotation}"
+                                 TextChanged="tbTempSP_TextChanged"/>
+                        <Label Content="°C"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Process Value:"/>
                         <Label x:Name="lTempPV"
                                Content="{Binding CurrentTemperature}"/>
-                        <Label Content="C"/>
+                        <Label Content="°C"/>
                     </StackPanel>
-                    <Button Content="Start heating"
-                            Click="StartHeating"/>
+                    <Button x:Name="btnStartStopHeating"
+                            Content="Start heating"
+                            Click="StartStopHeating"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

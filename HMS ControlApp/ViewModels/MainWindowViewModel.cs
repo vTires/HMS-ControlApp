@@ -11,13 +11,13 @@ namespace HMS_ControlApp.ViewModels
     {
         public MainWindowViewModel()
         {
-            IsFrameShouldBeEnabled = GlobalSettings.isRsConnected;
+            GlobalSettings.PropertyChanged += GlobalSettings_PropertyChanged;
         }
-
+  
         private bool _IsFrameShouldBeEnabled = false;
         public bool IsFrameShouldBeEnabled
         {
-            get { return _IsFrameShouldBeEnabled; }
+            get { return  GlobalSettings.isRsConnected; }
             set
             {
                 _IsFrameShouldBeEnabled = value;
@@ -32,6 +32,12 @@ namespace HMS_ControlApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        private void GlobalSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(GlobalSettings.isRsConnected))
+                OnPropertyChanged(nameof(IsFrameShouldBeEnabled));
+        }
+
         #endregion
 
 

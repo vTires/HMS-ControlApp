@@ -58,12 +58,6 @@ namespace HMS_ControlApp.Service
         }
 
         #region INotify
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //protected virtual void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
         public static event PropertyChangedEventHandler PropertyChanged;
         private static void OnPropertyChanged(string propertyName)
         {

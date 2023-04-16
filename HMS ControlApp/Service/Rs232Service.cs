@@ -39,6 +39,7 @@ namespace HMS_ControlApp.Service
             {
                 GlobalSettings.serialPort.Open();
                 if (GlobalSettings.serialPort.IsOpen == true) GlobalSettings.isRsConnected = true;
+                else GlobalSettings.isRsConnected = false;
             }
             else
             {

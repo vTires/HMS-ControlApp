@@ -30,17 +30,49 @@ namespace HMS_ControlApp.Views
             DataContext = mainFrameViewModel;
         }
 
-        private void StartRotation(object sender, RoutedEventArgs e)
+        private void StartStopRotation(object sender, RoutedEventArgs e)
         {
-            Rs232Service.SendCommand(Commands.StartRotation);
-            GlobalSettings.serialPort.ReadLine();
+            if (btnStartStopRotation.Content == "Start rotation")
+            {
+                Rs232Service.SendCommand(Commands.StartRotation);
+                GlobalSettings.serialPort.ReadLine();
+                btnStartStopRotation.Content = "Stop rotation";
+            }
+            else
+            {
+                Rs232Service.SendCommand(Commands.StopRotation);
+                GlobalSettings.serialPort.ReadLine();
+                btnStartStopRotation.Content = "Start rotation";
+            }
+            
         }
 
-        private void StartHeating(object sender, RoutedEventArgs e)
+        private void StartStopHeating(object sender, RoutedEventArgs e)
         {
-            Rs232Service.SendCommand(Commands.StartHeating);
-            GlobalSettings.serialPort.ReadLine();
+            if (btnStartStopHeating.Content == "Start heating")
+            {
+                Rs232Service.SendCommand(Commands.StartHeating);
+                GlobalSettings.serialPort.ReadLine();
+                btnStartStopHeating.Content = "Stop heating";
+            }
+            else
+            {
+                Rs232Service.SendCommand(Commands.StopHeating);
+                GlobalSettings.serialPort.ReadLine();
+                btnStartStopHeating.Content = "Start heating";
+            }
         }
-      
+
+        private void tbRotationSP_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //mainFrameViewModel.SetSpeed();
+        }
+
+        private void tbTempSP_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //mainFrameViewModel.SetTemperature();
+        }
+
+        
     }
 }

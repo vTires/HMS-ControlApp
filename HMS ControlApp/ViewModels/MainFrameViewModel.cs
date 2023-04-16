@@ -13,14 +13,14 @@ namespace HMS_ControlApp.ViewModels
     {
         public MainFrameViewModel()
         {
-            //CurrentTemperature = UpdateService.CurrentTemperature;
-            //_CurrentRotation = UpdateService.CurrentRotation;
             UpdateService.PropertyChanged += UpdateService_PropertyChanged;
         }
 
 
         private float _CurrentTemperature;
         private float _CurrentRotation;
+        private float _SPTemperature;
+        private float _SPRotation;
 
         public float CurrentTemperature
         {
@@ -34,7 +34,6 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
-       
         public float CurrentRotation
         {
             get { return UpdateService.CurrentRotation; }
@@ -47,9 +46,41 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
+        public float SPTemperature
+        {
+            get { return _SPTemperature; }
+            set
+            {
+                if (_SPTemperature != value)
+                {
+                    _SPTemperature = value;
+                    OnPropertyChanged("SPTemperature");
+                }
+            }
+        }
+        public float SPRotation
+        {
+            get { return _SPRotation; }
+            set
+            {
+                if (_SPRotation != value)
+                {
+                    _SPRotation = value;
+                    OnPropertyChanged("SPRotation");
+                }
+            }
+        }
 
+        public void SetSpeed()
+        {
+            //string CurrentSetPoint = Commands.SetSpeed.Replace(Y, 22, 9);
+            Rs232Service.SendCommand(Commands.SetSpeed);
 
-
+        }
+        public void SetTemperature()
+        {
+            Rs232Service.SendCommand(Commands.SetTemperature);
+        }
 
 
         #region INotify
