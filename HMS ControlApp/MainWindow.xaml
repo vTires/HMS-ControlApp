@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HMS_ControlApp"
         xmlns:views="clr-namespace:HMS_ControlApp.Views"
+        xmlns:viewModels="clr-namespace:HMS_ControlApp.ViewModels"
         mc:Ignorable="d"
         Title="HMS ControlApp" Height="500" Width="1000"
         >
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"></ColumnDefinition>
@@ -33,7 +38,7 @@
                Grid.Row="1"
                Grid.Column="1"
                Margin="10,10,0,0"
-               IsEnabled="False"/>
+               IsEnabled="{Binding IsFrameShouldBeEnabled}"/>
       
 
         <views:FootnoteView Grid.Row="2"

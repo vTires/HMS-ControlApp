@@ -1,7 +1,9 @@
 ﻿using HMS_ControlApp.Service;
+using HMS_ControlApp.ViewModels;
 using HMS_ControlApp.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace HMS_ControlApp
         FootnoteView footnoteView = new FootnoteView();
         MainFrameView mainFrameView = new MainFrameView();
         HeaderView headerView = new HeaderView();
+        UpdateService updateService = new UpdateService();
+        MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
 
         public MainWindow()
         {
@@ -33,8 +37,11 @@ namespace HMS_ControlApp
             InitializeComponent();
             LanguageService.ChangeLanguage(Languages.English);
             GlobalSettings globalsettings = new GlobalSettings();
-
+            DataContext = mainWindowViewModel;
+            
 
         }
+
+
     }
 }

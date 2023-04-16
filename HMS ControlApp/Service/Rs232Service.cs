@@ -10,11 +10,10 @@ namespace HMS_ControlApp.Service
 {
     public class Rs232Service
     {
-        //private static SerialPort? serialPort;
 
         public Rs232Service()
         {
-           // serialPort = new SerialPort("COM3", 9600, Parity.Even, 7, StopBits.One);
+
         }
 
         public static void COMChoosed()
@@ -24,6 +23,9 @@ namespace HMS_ControlApp.Service
                 GlobalSettings.serialPort = new SerialPort(GlobalSettings.COMPort, 9600, Parity.Even, 7, StopBits.One);
                 Rs232Service.ConnectRs();
                 Rs232Service.SendCommand(Commands.PA_NEW);
+                GlobalSettings.serialPort.ReadLine();
+                UpdateService.GetProcessValue_Dispatcher.Start();
+
             }
             else
             {
@@ -36,6 +38,7 @@ namespace HMS_ControlApp.Service
             if (GlobalSettings.serialPort != null)
             {
                 GlobalSettings.serialPort.Open();
+                if (GlobalSettings.serialPort.IsOpen == true) GlobalSettings.isRsConnected = true;
             }
             else
             {

@@ -33,11 +33,13 @@ namespace HMS_ControlApp.Views
         private void StartRotation(object sender, RoutedEventArgs e)
         {
             Rs232Service.SendCommand(Commands.StartRotation);
+            GlobalSettings.serialPort.ReadLine();
         }
 
         private void StartHeating(object sender, RoutedEventArgs e)
         {
             Rs232Service.SendCommand(Commands.StartHeating);
+            GlobalSettings.serialPort.ReadLine();
         }
       
     }

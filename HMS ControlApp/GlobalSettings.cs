@@ -11,6 +11,7 @@ namespace HMS_ControlApp
     {
         public static SerialPort? serialPort;
         public static string COMPort;
+        public static bool isRsConnected = false;
 
         public GlobalSettings()
         {

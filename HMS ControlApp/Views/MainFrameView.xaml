@@ -44,7 +44,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Process Value:"/>
                         <Label x:Name="lRotationPV"
-                               Content="0"/>
+                               Content="{Binding CurrentRotation}"/>
                         <Label Content="RPM"/>
                     </StackPanel>
                     <Button Content="Start rotation"
@@ -72,7 +72,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Process Value:"/>
                         <Label x:Name="lTempPV"
-                               Content="0"/>
+                               Content="{Binding CurrentTemperature}"/>
                         <Label Content="C"/>
                     </StackPanel>
                     <Button Content="Start heating"
