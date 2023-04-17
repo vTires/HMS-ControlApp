@@ -41,6 +41,7 @@ namespace HMS_ControlApp
             GlobalSettings globalsettings = new GlobalSettings();
             DataContext = mainWindowViewModel;
             MainFrame.Navigate(mainFrameView);
+            mainWindowViewModel.SetPressedStyle(btnMainMenu);
 
         }
 
@@ -48,16 +49,27 @@ namespace HMS_ControlApp
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(mainFrameView);
+            mainWindowViewModel.SetPressedStyle(btnMainMenu);
+            mainWindowViewModel.SetStyle(btnSettingsMenu);
+            mainWindowViewModel.SetStyle(btnAlarmsMenu);
+
+            
         }
 
         private void btnSettingsMenu_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(settingsView);
+            mainWindowViewModel.SetStyle(btnMainMenu);
+            mainWindowViewModel.SetPressedStyle(btnSettingsMenu);
+            mainWindowViewModel.SetStyle(btnAlarmsMenu);
         }
 
         private void btnAlarmsMenu_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(alarmsView);
+            mainWindowViewModel.SetStyle(btnMainMenu);
+            mainWindowViewModel.SetStyle(btnSettingsMenu);
+            mainWindowViewModel.SetPressedStyle(btnAlarmsMenu);
         }
     }
 }

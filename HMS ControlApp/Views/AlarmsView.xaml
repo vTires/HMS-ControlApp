@@ -8,12 +8,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="950">
     <Grid Background="{StaticResource White_UI}"
-          Margin="10,10,0,0">
+          Margin="10,10,10,10">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+
+        </Grid.RowDefinitions>
         
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
@@ -26,6 +31,7 @@
                   RowHeaderWidth="0"
                   ItemsSource="{Binding Path=exceptionsList, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
                   Grid.Column="1" 
+                  Grid.Row="0"
                   Background="{DynamicResource White_UI}"
                   AutoGenerateColumns="False"
                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -42,10 +48,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-
-        <!--</ScrollViewer>-->
-
-        <StackPanel Grid.Row="2"   Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,20,20,20">
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0">
             <Button Content="Add test exception"
                 Click="AddButtonExceptions_Click"
                 Height="30"

@@ -24,7 +24,7 @@
             <Label Content="{DynamicResource StringSettings_Language}"
                    Width="80"/>
             
-            <ComboBox x:Name="cbLanguage" 
+            <ComboBox x:Name="cbLanguage"
                   Height="30"
                   Width="100"
                   SelectionChanged="cbLanguageValueChange" 

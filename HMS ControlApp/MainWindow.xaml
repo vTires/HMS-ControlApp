@@ -41,6 +41,7 @@
                        Orientation="Vertical"
                        Background="{StaticResource Gray_UI}">
                 <Button x:Name="btnMainMenu"
+                        Style="{StaticResource MenuButtonStyle}"
                         Height="50" Width="50"
                         Background="Transparent"
                         Click="btnMainMenu_Click">
@@ -48,6 +49,7 @@
                            Width="30"/>
                 </Button>
                 <Button x:Name="btnSettingsMenu"
+                        Style="{StaticResource MenuButtonStyle}"
                         Height="50" Width="50"
                         Background="Transparent"
                         Click="btnSettingsMenu_Click">
@@ -55,6 +57,7 @@
                            Width="30"/>
                 </Button>
                 <Button x:Name="btnAlarmsMenu"
+                        Style="{StaticResource MenuButtonStyle}"
                         Height="50" Width="50"
                         Background="Transparent"
                         Click="btnAlarmsMenu_Click">

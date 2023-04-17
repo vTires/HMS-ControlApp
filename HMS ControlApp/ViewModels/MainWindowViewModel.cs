@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace HMS_ControlApp.ViewModels
 {
@@ -23,7 +25,14 @@ namespace HMS_ControlApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+        public void SetPressedStyle(Button button)
+        {
+            button.Style = Application.Current.FindResource("MenuButtonPressedStyle") as Style;
+        }
+        public void SetStyle(Button button)
+        {
+            button.Style = Application.Current.FindResource("MenuButtonStyle") as Style;
+        }
 
         #endregion
 
