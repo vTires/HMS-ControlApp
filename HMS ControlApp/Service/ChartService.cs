@@ -26,12 +26,16 @@ namespace HMS_ControlApp.Service
                 new LineSeries<double>
                 {
                     Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
-                    Fill = null
+                    Fill = null,
+                    GeometrySize = 1,
+                    LineSmoothness = 0
                 },
                 new LineSeries<double>
                 {
                     Values = new double[] { 10, 5, 2, 1, 1, 1, 7 },
-                    Fill = null
+                    Fill = null,
+                    GeometrySize = 5,
+                    LineSmoothness = 1
                 }
             };
         }
