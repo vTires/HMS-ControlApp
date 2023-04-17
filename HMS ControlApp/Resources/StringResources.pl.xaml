@@ -16,9 +16,13 @@
     <system:String x:Key="StringMainFrame_Startheating">Rozpocznij grzanie</system:String>
     <system:String x:Key="StringMainFrame_Stopheating">Zatrzymaj grzanie</system:String>
 
-    <!--Settings-->
+<!--Settings-->
     <system:String x:Key="StringSettings_Language">Język</system:String>
 
-    <!--Alarms-->
+<!-- Alarms -->
+    <system:String x:Key="Alarms_ExceptionNo">Lp</system:String>
+    <system:String x:Key="Alarms_ExceptionTime">Czas</system:String>
+    <system:String x:Key="Alarms_Exception">Wyjątek</system:String>
+    <system:String x:Key="Alarms_ExceptionStackTrace">Scieżka</system:String>
 
 </ResourceDictionary>

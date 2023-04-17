@@ -4,14 +4,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HMS_ControlApp.Views"
+             xmlns:service="clr-namespace:HMS_ControlApp.Service"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="950">
     <Grid Background="{StaticResource White_UI}"
           Margin="10,10,0,0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Label Content="Page in building"/>
             <Label Content="Alarms will be here"/>
         </StackPanel>
+
+
+        <DataGrid x:Name="dgExceptions"
+                  RowHeaderWidth="0"
+                  ItemsSource="{Binding Path=exceptionsList, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                  Grid.Column="1" 
+                  Background="{DynamicResource White_UI}"
+                  AutoGenerateColumns="False"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Width="Auto"
+                  CanUserAddRows="False"
+                  BorderThickness="1,0,0,0"
+                  >
+        <DataGrid.Columns>
+                <DataGridTextColumn Header="{DynamicResource Alarms_ExceptionNo}" Binding="{Binding exceptionNo, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{DynamicResource Alarms_ExceptionTime}" Binding="{Binding exceptionTime, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{DynamicResource Alarms_Exception}" Binding="{Binding exception, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="{DynamicResource Alarms_ExceptionStackTrace}" Binding="{Binding exceptionStackTrace, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <!--</ScrollViewer>-->
+
+        <StackPanel Grid.Row="2"   Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,20,20,20">
+            <Button Content="Add test exception"
+                Click="AddButtonExceptions_Click"
+                Height="30"
+                Width="150" 
+                    Margin="0,0,20,0"/>
+            <Button Content="Clear exceptions"
+                Click="ClearButtonExceptions_Click"
+                Height="30"
+                Width="150"/>
+        </StackPanel>
+
+
     </Grid>
 </UserControl>

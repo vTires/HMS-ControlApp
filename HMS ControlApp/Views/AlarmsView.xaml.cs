@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,37 @@ namespace HMS_ControlApp.Views
     /// </summary>
     public partial class AlarmsView : UserControl
     {
+        ExceptionsService exceptionsService = new ExceptionsService();
         public AlarmsView()
         {
             InitializeComponent();
+            dgExceptions.DataContext = exceptionsService;
         }
+
+        private void ClearButtonExceptions_Click(object sender, RoutedEventArgs e)
+        {
+            ExceptionsService.exceptionsList.Clear();
+
+        }
+
+        private void AddButtonExceptions_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int[] array = new int[1];
+                array[1] = 1;
+
+            }
+            catch (Exception ee)
+            {
+                ExceptionsService.ExceptionCatcher(ee);
+            }
+            dgExceptions.Items.Refresh();
+
+
+        }
+
+
+       
     }
 }

@@ -19,6 +19,10 @@
 <!--Settings-->
     <system:String x:Key="StringSettings_Language">Language</system:String>
 
-<!--Alarms-->
+<!-- Alarms -->
+    <system:String x:Key="Alarms_ExceptionNo">No</system:String>
+    <system:String x:Key="Alarms_ExceptionTime">Time</system:String>
+    <system:String x:Key="Alarms_Exception">Exception</system:String>
+    <system:String x:Key="Alarms_ExceptionStackTrace">Stack Trace</system:String>
 
 </ResourceDictionary>
