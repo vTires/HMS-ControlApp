@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HMS_ControlApp.Views"
              xmlns:viewModels="clr-namespace:HMS_ControlApp.ViewModels"
+             xmlns:service="clr-namespace:HMS_ControlApp.Service"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="950">
     <UserControl.DataContext>
@@ -17,20 +19,19 @@
           IsEnabled="{Binding IsFrameShouldBeEnabled}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0"
+                    Grid.Column="0">
         <GroupBox Header="{DynamicResource StringMainFrame_RotationSettings}"
                   BorderBrush="{StaticResource Black_UI}"
-                  Grid.Row="1"
-                  Grid.Column="0"
                   Width="Auto"
                   MinWidth="200"
                   Margin="0,0,20,0">
@@ -60,8 +61,6 @@
         
         <GroupBox Header="{DynamicResource StringMainFrame_TemperatureSettings}"
                   BorderBrush="{StaticResource Black_UI}"
-                  Grid.Row="1"
-                  Grid.Column="0"
                   Width="Auto"
                   MinWidth="200"
                   Margin="0,0,20,0">
@@ -90,5 +89,26 @@
             </GroupBox>
         </StackPanel>
 
+        <Grid x:Name="ChartGrid"
+            Grid.Row="0"
+              Grid.Column="1">
+            <Grid.DataContext>
+                <service:ChartService/>
+            </Grid.DataContext>
+            <GroupBox Header="{DynamicResource StringMainFrame_Chart}"
+                  BorderBrush="{StaticResource Black_UI}"
+                  Width="Auto"
+                  Height="Auto"
+                  MinWidth="400"
+                  MinHeight="200"
+                  Margin="0,0,20,0">
+
+                <lvc:CartesianChart
+                    Series="{Binding ChartData}">
+                </lvc:CartesianChart>
+
+
+            </GroupBox>
+        </Grid>
     </Grid>
 </UserControl>

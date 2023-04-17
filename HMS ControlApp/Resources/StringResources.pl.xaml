@@ -9,6 +9,7 @@
 <!--MainFrame-->
     <system:String x:Key="StringMainFrame_RotationSettings">Ustawienia mieszania</system:String>
     <system:String x:Key="StringMainFrame_TemperatureSettings">Ustawienia temperatury</system:String>
+    <system:String x:Key="StringMainFrame_Chart">Wykres</system:String>
     <system:String x:Key="StringMainFrame_SetPoint">Nastawa:</system:String>
     <system:String x:Key="StringMainFrame_ProcessValue">Aktualna wartość:</system:String>
     <system:String x:Key="StringMainFrame_StartRotation">Rozpocznij mieszanie</system:String>

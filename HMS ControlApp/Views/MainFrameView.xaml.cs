@@ -28,6 +28,7 @@ namespace HMS_ControlApp.Views
         {
             InitializeComponent();
             DataContext = mainFrameViewModel;
+            
         }
 
         private void StartStopRotation(object sender, RoutedEventArgs e)

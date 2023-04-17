@@ -9,6 +9,7 @@
 <!--MainFrame-->
     <system:String x:Key="StringMainFrame_RotationSettings">Rotation Settings</system:String>
     <system:String x:Key="StringMainFrame_TemperatureSettings">Temperature Settings</system:String>
+    <system:String x:Key="StringMainFrame_Chart">Chart</system:String>
     <system:String x:Key="StringMainFrame_SetPoint">Set Point:</system:String>
     <system:String x:Key="StringMainFrame_ProcessValue">Process Value:</system:String>
     <system:String x:Key="StringMainFrame_StartRotation">Start rotation</system:String>
