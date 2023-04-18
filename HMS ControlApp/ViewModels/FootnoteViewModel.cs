@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,12 +13,15 @@ namespace HMS_ControlApp.ViewModels
 {
     public class FootnoteViewModel : INotifyPropertyChanged
     {
+        public event EventHandler TimeChanged;
         private string _currentTime;
         private Thread timeThread;
+        private ChartService chartService;
 
         public FootnoteViewModel()
         {
             StartClock();
+            chartService = new ChartService();
         }
 
         public string CurrentTime
@@ -52,6 +56,8 @@ namespace HMS_ControlApp.ViewModels
                 Application.Current.Dispatcher.Invoke(() =>
                     {
                         CurrentTime = formattedTime;
+                        if (chartService != null) chartService.SetCurrentTime(currentTime);
+                        
                     });
                 
 

@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace HMS_ControlApp.Service
 {
-    public class UpdateService /*: INotifyPropertyChanged*/
+    public class UpdateService
     {
         public static System.Windows.Threading.DispatcherTimer GetProcessValue_Dispatcher;
 
-        private static float _CurrentTemperature;
-        private static float _CurrentRotation;
+        private static double _CurrentTemperature;
+        private static double _CurrentRotation;
 
-        public static float CurrentTemperature
+        public static double CurrentTemperature
         {
             get { return _CurrentTemperature; }
             set { _CurrentTemperature = value;
                 OnPropertyChanged(nameof(CurrentTemperature));
             }
         }
-        public static float CurrentRotation
+        public static double CurrentRotation
         {
             get { return _CurrentRotation; }
             set { _CurrentRotation = value;
@@ -41,19 +41,19 @@ namespace HMS_ControlApp.Service
         {
             Rs232Service.SendCommand(Commands.GetTempHotplate);
             var CurrentTemp = GlobalSettings.serialPort.ReadLine();
-            UpdateService.CurrentTemperature = ConvertReadToFloat(CurrentTemp);
+            UpdateService.CurrentTemperature = ConvertReadTodouble(CurrentTemp);
             Rs232Service.SendCommand(Commands.GetRotation);
             var CurrentRot = GlobalSettings.serialPort.ReadLine();
-            UpdateService.CurrentRotation = ConvertReadToFloat(CurrentRot);
+            UpdateService.CurrentRotation = ConvertReadTodouble(CurrentRot);
         }
 
-        public float ConvertReadToFloat(string Readline)
+        public double ConvertReadTodouble(string Readline)
         {
             string[] substrings = Readline.Split(' ');
             string temp_str = substrings[1];
             temp_str = temp_str.Trim('\r');
             temp_str = temp_str.Replace(".", ",");
-            return float.Parse(temp_str);
+            return double.Parse(temp_str);
 
         }
 

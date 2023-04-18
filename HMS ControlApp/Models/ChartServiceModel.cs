@@ -8,6 +8,7 @@ namespace HMS_ControlApp.Models
 {
     public class ChartServiceModel
     {
+        
        
             public DateTime Time { get; set; }
             public double Value1 { get; set; }

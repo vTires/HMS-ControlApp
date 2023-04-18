@@ -18,10 +18,10 @@ namespace HMS_ControlApp.ViewModels
         }
 
         private bool _IsFrameShouldBeEnabled = false;
-        private float _CurrentTemperature;
-        private float _CurrentRotation;
-        private float _SPTemperature;
-        private float _SPRotation;
+        private double _CurrentTemperature;
+        private double _CurrentRotation;
+        private double _SPTemperature;
+        private double _SPRotation;
 
         public bool IsFrameShouldBeEnabled
         {
@@ -32,7 +32,7 @@ namespace HMS_ControlApp.ViewModels
                 OnPropertyChanged(nameof(IsFrameShouldBeEnabled));
             }
         }
-        public float CurrentTemperature
+        public double CurrentTemperature
         {
             get { return UpdateService.CurrentTemperature; }
             set
@@ -44,7 +44,7 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
-        public float CurrentRotation
+        public double CurrentRotation
         {
             get { return UpdateService.CurrentRotation; }
             set
@@ -56,7 +56,7 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
-        public float SPTemperature
+        public double SPTemperature
         {
             get { return _SPTemperature; }
             set
@@ -68,7 +68,7 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
-        public float SPRotation
+        public double SPRotation
         {
             get { return _SPRotation; }
             set
