@@ -24,6 +24,14 @@
                   Width="200"
                   Height="30"
                   Margin="20,0,0,0"/>
+            <RadioButton IsChecked="{Binding IsRsConnected, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="30,0,0,0"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         IsEnabled="False"
+                         />
         </StackPanel>
+
+       
     </Grid>
 </UserControl>

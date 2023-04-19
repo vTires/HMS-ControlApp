@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HMS_ControlApp.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,9 +10,15 @@ namespace HMS_ControlApp.ViewModels
 {
     public class HeaderViewModel : INotifyPropertyChanged
     {
-
+        public HeaderViewModel()
+        {
+            GlobalSettings.PropertyChanged += GlobalSettings_PropertyChanged;
+            _COMPorts = new BindingList<string>();
+            FindComPorts();
+        }
         private BindingList <string> _COMPorts;
         private string _SelectedCOMPort;
+        private bool _IsRsConnected;
 
         public BindingList<string> COMPorts
         {
@@ -30,12 +37,14 @@ namespace HMS_ControlApp.ViewModels
                 OnPropertyChanged("COMPorts");
             }
         }
-
-
-        public HeaderViewModel()
+        public bool IsRsConnected
         {
-            _COMPorts = new BindingList<string>();
-            FindComPorts();
+            get { return GlobalSettings.isRsConnected; }
+            set
+            {
+                _IsRsConnected = value;
+                OnPropertyChanged("IsRsConnected");
+            }
         }
 
         private void FindComPorts()
@@ -48,12 +57,22 @@ namespace HMS_ControlApp.ViewModels
         }
 
         #region INotify
+           
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void GlobalSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(GlobalSettings.isRsConnected))
+                IsRsConnected = GlobalSettings.isRsConnected;
+        }
+
+
         #endregion
+       
     }
 }
