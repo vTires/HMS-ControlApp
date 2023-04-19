@@ -9,6 +9,7 @@
 <!--MainFrame-->
     <system:String x:Key="StringMainFrame_RotationSettings">Rotation Settings</system:String>
     <system:String x:Key="StringMainFrame_TemperatureSettings">Temperature Settings</system:String>
+    <system:String x:Key="StringMainFrame_TimeSettings">Time Settings</system:String>
     <system:String x:Key="StringMainFrame_Chart">Chart</system:String>
     <system:String x:Key="StringMainFrame_SetPoint">Set Point:</system:String>
     <system:String x:Key="StringMainFrame_ProcessValue">Process Value:</system:String>
@@ -16,7 +17,13 @@
     <system:String x:Key="StringMainFrame_StopRotation">Stop rotation</system:String>
     <system:String x:Key="StringMainFrame_StartHeating">Start heating</system:String>
     <system:String x:Key="StringMainFrame_StopHeating">Stop heating</system:String>
+    <system:String x:Key="StringMainFrame_StartTime">Start time function</system:String>
+    <system:String x:Key="StringMainFrame_StopTime">Stop time function</system:String>
 
+<!--Chart-->
+    <system:String x:Key="StringChart_Temperature">Temperature</system:String>
+    <system:String x:Key="StringChart_Rotation">Stirring</system:String>
+    
 <!--Settings-->
     <system:String x:Key="StringSettings_Language">Language</system:String>
 

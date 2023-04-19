@@ -26,6 +26,8 @@ namespace HMS_ControlApp.Service
                 var response = GlobalSettings.serialPort.ReadLine();
                 if (response == "PA_NEW\r")
                 {
+                    Rs232Service.SendCommand(Commands.StopHeating);
+                    Rs232Service.SendCommand(Commands.StopRotation);
                     UpdateService.GetProcessValue_Dispatcher.Start();
                 }
                 else
@@ -46,7 +48,10 @@ namespace HMS_ControlApp.Service
             if (GlobalSettings.serialPort != null)
             {
                 GlobalSettings.serialPort.Open();
-                if (GlobalSettings.serialPort.IsOpen == true) GlobalSettings.isRsConnected = true;
+                if (GlobalSettings.serialPort.IsOpen == true)
+                {
+                    GlobalSettings.isRsConnected = true;
+                }
                 else GlobalSettings.isRsConnected = false;
             }
             else
@@ -61,6 +66,11 @@ namespace HMS_ControlApp.Service
             if (GlobalSettings.serialPort != null)
             {
                 GlobalSettings.serialPort.Write(command);
+                if (command != "PA_NEW\r\n" && command != "IN_PV_3\r\n" && command != "IN_PV_5\r\n")
+                {
+                    var response = GlobalSettings.serialPort.ReadLine();
+                }
+
             }
             else
             {

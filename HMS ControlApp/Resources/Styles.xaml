@@ -22,6 +22,11 @@
         <GradientStop Color="#FFFBFBFB" Offset="0"/>
     </LinearGradientBrush>
 
+    <LinearGradientBrush x:Key="GrayButton_UI" StartPoint="0,0.5" EndPoint="1,0.5" MappingMode="RelativeToBoundingBox">
+        <GradientStop Color="#9FA0A7" Offset="1"/>
+        <GradientStop Color="#FF6D6D6D" Offset="0.3"/>
+    </LinearGradientBrush>
+
 
     <SolidColorBrush x:Key="Red_Alarm" Color="#EA1212"/>
     <SolidColorBrush x:Key="White_UI" Color="White"/>
@@ -129,10 +134,10 @@
 <!--Button-->
     <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="#FFFFFF" />
-        <Setter Property="Background" Value="#0078D7" />
+        <Setter Property="Background" Value="{StaticResource GrayButton_UI}" />
         <Setter Property="Padding" Value="10,5" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="#0078D7" />
+        <Setter Property="BorderBrush" Value="{StaticResource Orange_UI}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -145,11 +150,11 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="#CCE4F7" />
+                            <Setter TargetName="Border" Property="Background" Value="#FFFFC277" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="#007ACC" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="#007ACC" />
+                            <Setter TargetName="Border" Property="Background" Value="#FF525252" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GrayButton_UI}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Border" Property="Opacity" Value="0.5" />

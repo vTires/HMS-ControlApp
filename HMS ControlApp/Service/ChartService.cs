@@ -10,8 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using System.Windows;
 
 namespace HMS_ControlApp.Service
 {
@@ -45,7 +44,7 @@ namespace HMS_ControlApp.Service
                 TooltipLabelFormatter = (chartPoint) =>
                 $"{new DateTime((long) chartPoint.SecondaryValue):hh:mm:ss}: {chartPoint.PrimaryValue}",
 
-
+                Name = "Temperature", //Application.Current.FindResource("StringChart_Temperature") as string
                 Values = _observableTemperatureValues,
                 Fill = null,
                 GeometrySize = 1,
@@ -56,6 +55,7 @@ namespace HMS_ControlApp.Service
                 TooltipLabelFormatter = (chartPoint) =>
                 $"{new DateTime((long) chartPoint.SecondaryValue):hh:mm:ss}: {chartPoint.PrimaryValue}", //was $"{new DateTime((short) chartPoint.SecondaryValue):MMMM dd}: {chartPoint.PrimaryValue}",
 
+                Name = "Rotation", //Application.Current.FindResource("StringChart_Rotation") as string
                 Values = _observableRotationValues,
                 Fill = null,
                 GeometrySize = 1,

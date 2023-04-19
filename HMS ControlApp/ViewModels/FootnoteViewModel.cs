@@ -46,23 +46,30 @@ namespace HMS_ControlApp.ViewModels
 
         private void UpdateClock()
         {
-
-            while (true)
+            try
             {
-                DateTime currentTime = DateTime.Now;
-                string formattedTime = currentTime.ToString("HH:mm:ss");
+                while (true)
+                {
+                    DateTime currentTime = DateTime.Now;
+                    string formattedTime = currentTime.ToString("HH:mm:ss");
 
 
-                Application.Current.Dispatcher.Invoke(() =>
+                    Application.Current.Dispatcher.Invoke(() =>
                     {
                         CurrentTime = formattedTime;
                         if (chartService != null) chartService.SetCurrentTime(currentTime);
-                        
-                    });
-                
 
-                Thread.Sleep(1000);
+                    });
+
+
+                    Thread.Sleep(1000);
+                }
             }
+            catch (Exception e)
+            {
+                ExceptionsService.ExceptionCatcher(e);
+            }
+            
         }
 
         #region INotify

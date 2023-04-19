@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:HMS_ControlApp.Views"
         xmlns:viewModels="clr-namespace:HMS_ControlApp.ViewModels"
         mc:Ignorable="d"
-        Title="HMS ControlApp" Height="500" Width="1000"
+        Title="HMS ControlApp" Height="500" Width="1050"
         >
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>

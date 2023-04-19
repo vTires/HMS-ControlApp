@@ -36,13 +36,11 @@ namespace HMS_ControlApp.Views
             if (btnStartStopRotation.Content == Application.Current.FindResource("StringMainFrame_StartRotation") as string)
             {
                 Rs232Service.SendCommand(Commands.StartRotation);
-                GlobalSettings.serialPort.ReadLine();
                 btnStartStopRotation.Content = Application.Current.FindResource("StringMainFrame_StopRotation") as string;
             }
             else
             {
                 Rs232Service.SendCommand(Commands.StopRotation);
-                GlobalSettings.serialPort.ReadLine();
                 btnStartStopRotation.Content = Application.Current.FindResource("StringMainFrame_StartRotation") as string;
             }
             
@@ -53,25 +51,42 @@ namespace HMS_ControlApp.Views
             if (btnStartStopHeating.Content == Application.Current.FindResource("StringMainFrame_StartHeating") as string)
             {
                 Rs232Service.SendCommand(Commands.StartHeating);
-                GlobalSettings.serialPort.ReadLine();
                 btnStartStopHeating.Content = Application.Current.FindResource("StringMainFrame_StopHeating") as string;
             }
             else
             {
                 Rs232Service.SendCommand(Commands.StopHeating);
-                GlobalSettings.serialPort.ReadLine();
                 btnStartStopHeating.Content = Application.Current.FindResource("StringMainFrame_StartHeating") as string;
             }
         }
-      
+
+        private void StartStopTime(object sender, RoutedEventArgs e)
+        {
+            if (btnStartStopTime.Content == Application.Current.FindResource("StringMainFrame_StartTime") as string)
+            {
+                //Rs232Service.SendCommand(Commands.StartTime);
+                btnStartStopTime.Content = Application.Current.FindResource("StringMainFrame_StopTime") as string;
+            }
+            else
+            {
+                //Rs232Service.SendCommand(Commands.StopTime);
+                btnStartStopTime.Content = Application.Current.FindResource("StringMainFrame_StartTime") as string;
+            }
+        }
+
         private void tbRotationSP_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbRotationSP != null) mainFrameViewModel.SetSpeed();
+            if (tbRotationSP != null && GlobalSettings.serialPort != null) mainFrameViewModel.SetSpeed();
         }
 
         private void tbTempSP_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (tbTempSP != null) mainFrameViewModel.SetTemperature();
+            if (tbTempSP != null && GlobalSettings.serialPort != null) mainFrameViewModel.SetTemperature();
+        }
+
+        private void tbTime_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbTempSP != null && GlobalSettings.serialPort != null) mainFrameViewModel.SetTemperature();
         }
     }
 }
