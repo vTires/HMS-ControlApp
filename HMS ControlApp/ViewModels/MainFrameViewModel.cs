@@ -22,6 +22,7 @@ namespace HMS_ControlApp.ViewModels
         private double _CurrentRotation;
         private double _SPTemperature;
         private double _SPRotation;
+        private byte _TemperatureControl;
 
         public bool IsFrameShouldBeEnabled
         {
@@ -80,7 +81,18 @@ namespace HMS_ControlApp.ViewModels
                 }
             }
         }
-
+        public byte TemperatureControl
+        {
+            get { return _TemperatureControl; }
+            set
+            {
+                if (_TemperatureControl != value)
+                {
+                    _TemperatureControl = value;
+                    OnPropertyChanged("TemperatureControl");
+                }
+            }
+        }
 
         public void SetSpeed()
         {
@@ -92,6 +104,15 @@ namespace HMS_ControlApp.ViewModels
         {
             string CurrentSetPoint = Commands.SetTemperature.Replace("Y", SPTemperature.ToString());
             Rs232Service.SendCommand(CurrentSetPoint);
+        }
+
+        public void ChangeTemperatureControl(byte mode)
+        {
+
+                string Mode = Commands.PreciseFastMode.Replace("Y", mode.ToString());
+                Rs232Service.SendCommand(Mode);
+
+            
         }
 
 

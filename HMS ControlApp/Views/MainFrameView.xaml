@@ -45,6 +45,7 @@
                                  VerticalContentAlignment="Center"
                                  Text="{Binding SPRotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F1}}"
                                  LostFocus="tbRotationSP_LostFocus"
+                                
                                  />
                         <Label Content="RPM"/>
                     </StackPanel>
@@ -57,7 +58,7 @@
                     <Button x:Name="btnStartStopRotation"
                             Width="150"
                             Height="30"
-                            Margin="0,20,0,0"
+                            Margin="0,10,0,10"
                             Style="{StaticResource ButtonStyle}"
                             Content="{DynamicResource StringMainFrame_StartRotation}"
                             Click="StartStopRotation"/>
@@ -78,7 +79,8 @@
                                  HorizontalContentAlignment="Left"
                                  VerticalContentAlignment="Center"
                                  Text="{Binding SPTemperature, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F1}}"
-                                 LostFocus="tbTempSP_LostFocus"/>
+                                 LostFocus="tbTempSP_LostFocus"
+                                />
                         <Label Content="°C"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -90,10 +92,21 @@
                     <Button x:Name="btnStartStopHeating"
                             Width="150"
                             Height="30"
-                            Margin="0,20,0,0"
+                            Margin="0,10,0,10"
                             Style="{StaticResource ButtonStyle}"
                             Content="{DynamicResource StringMainFrame_StartHeating}"
                             Click="StartStopHeating"/>
+                    <Label Content="{DynamicResource StringMainFrame_TemperatureControl}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{DynamicResource StringMainFrame_PreciseMode}"/>
+                        <Slider Width="100" Minimum="0" Maximum="1" 
+                                Value="{Binding TemperatureControl, UpdateSourceTrigger=PropertyChanged}"
+                                ValueChanged="Slider_ValueChanged"
+                                VerticalAlignment="Center"/>
+                        <Label Content="{DynamicResource StringMainFrame_FastMode}"
+                               />
+                    </StackPanel>
+                    
                 </StackPanel>
             </GroupBox>
         </StackPanel>
@@ -129,7 +142,7 @@
                 <Button x:Name="btnStartStopTime"
                             Width="150"
                             Height="30"
-                            Margin="0,20,0,0"
+                            Margin="0,10,0,0"
                             Style="{StaticResource ButtonStyle}"
                             Content="{DynamicResource StringMainFrame_StartTime}"
                             Click="StartStopHeating"/>

@@ -90,47 +90,7 @@
 <!--ComboBox-->
    
 <!--DataGrid-->
-    <Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
-        <Setter Property="HeadersVisibility" Value="Column"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="#F5F5F5"/>
-        <Setter Property="RowBackground" Value="#FFFFFF"/>
-        <Setter Property="AlternatingRowBackground" Value="#F5F5F5"/>
-        <Setter Property="GridLinesVisibility" Value="None"/>
-        <Setter Property="AutoGenerateColumns" Value="False"/>
-        <Setter Property="ColumnHeaderHeight" Value="35"/>
-        <Setter Property="CellStyle">
-            <Setter.Value>
-                <Style TargetType="{x:Type DataGridCell}">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="Padding" Value="10"/>
-                </Style>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ColumnHeaderStyle">
-            <Setter.Value>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#2196F3"/>
-                    <Setter Property="Foreground" Value="#FFFFFF"/>
-                    <Setter Property="FontSize" Value="14"/>
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="Padding" Value="10,0,10,0"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                </Style>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGrid}">
-                    <Border BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ScrollViewer Focusable="False" CanContentScroll="True" Padding="{TemplateBinding Padding}">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </ScrollViewer>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-      </Style>
+
 <!--Button-->
     <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="#FFFFFF" />
@@ -165,7 +125,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+<!--Slider-->
+  
 
 
 </ResourceDictionary>

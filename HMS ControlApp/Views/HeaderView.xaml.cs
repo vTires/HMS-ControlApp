@@ -24,6 +24,7 @@ namespace HMS_ControlApp.Views
     public partial class HeaderView : UserControl
     {
         HeaderViewModel headerViewModel = new HeaderViewModel();
+        
         public HeaderView()
         {
             InitializeComponent();
@@ -33,6 +34,11 @@ namespace HMS_ControlApp.Views
         private void cbComPortSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Rs232Service.COMChoosed();
+        }
+
+        public void ZeroComboBox()
+        {
+            cbComPort.SelectedIndex = -1;
         }
     }
 }

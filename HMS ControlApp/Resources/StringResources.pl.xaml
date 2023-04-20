@@ -19,6 +19,9 @@
     <system:String x:Key="StringMainFrame_StopHeating">Zatrzymaj grzanie</system:String>
     <system:String x:Key="StringMainFrame_StartTime">Rozpocznij funkcję czasową</system:String>
     <system:String x:Key="StringMainFrame_StopTime">Zatrzymaj funkcję czasową</system:String>
+    <system:String x:Key="StringMainFrame_TemperatureControl">Kontrola temperatury</system:String>
+    <system:String x:Key="StringMainFrame_PreciseMode">Precyzyjna</system:String>
+    <system:String x:Key="StringMainFrame_FastMode">Szybka</system:String>
 
 <!--Chart-->
     <system:String x:Key="StringChart_Temperature">Temperatura</system:String>

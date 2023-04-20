@@ -88,5 +88,10 @@ namespace HMS_ControlApp.Views
         {
             if (tbTempSP != null && GlobalSettings.serialPort != null) mainFrameViewModel.SetTemperature();
         }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mainFrameViewModel.ChangeTemperatureControl((byte)e.NewValue);
+        }
     }
 }

@@ -39,12 +39,20 @@ namespace HMS_ControlApp.Service
 
         public void GetProcessValue_Tick(object sender, EventArgs e)
         {
-            Rs232Service.SendCommand(Commands.GetTempHotplate);
-            var CurrentTemp = GlobalSettings.serialPort.ReadLine();
-            UpdateService.CurrentTemperature = ConvertReadTodouble(CurrentTemp);
-            Rs232Service.SendCommand(Commands.GetRotation);
-            var CurrentRot = GlobalSettings.serialPort.ReadLine();
-            UpdateService.CurrentRotation = ConvertReadTodouble(CurrentRot);
+            try
+            {
+                Rs232Service.SendCommand(Commands.GetTempHotplate);
+                var CurrentTemp = GlobalSettings.serialPort.ReadLine();
+                UpdateService.CurrentTemperature = ConvertReadTodouble(CurrentTemp);
+                Rs232Service.SendCommand(Commands.GetRotation);
+                var CurrentRot = GlobalSettings.serialPort.ReadLine();
+                UpdateService.CurrentRotation = ConvertReadTodouble(CurrentRot);
+            }
+            catch (Exception ee)
+            {
+ExceptionsService.ExceptionCatcher(ee);
+            }
+            
         }
 
         public double ConvertReadTodouble(string Readline)
